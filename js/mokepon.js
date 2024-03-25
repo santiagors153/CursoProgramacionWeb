@@ -63,17 +63,14 @@ function seleccionarMascotaEnemigo(){
 /*Las siguentes funciones ataquefuego, ataqueAgua y ataqueTierra, permite mostrara de manear visual que se estan atacando con las descriociones mencionasdas en cada funcion.*/
 function ataqueFuego(){
     ataqueJugador = "Fuego"
-    alert("Fuego")
     ataqueAleatorioEnemigo()
 }
 function ataqueAgua(){
     ataqueJugador = "Agua"
-    alert("Agua")
     ataqueAleatorioEnemigo()
 }
 function ataqueTierra(){
     ataqueJugador = "Tierra"
-    alert("Tierra")
     ataqueAleatorioEnemigo()
 } 
 //Nota #05
@@ -121,6 +118,7 @@ function combate(){
         vidasJugador--
         spanVidasJugador.innerHTML = vidasJugador
     }
+    revisarVidas()
 }
 //Nota #08.
 /*ESta funcion permite imprimir el mensaje de la batalla mokepon*/
@@ -130,5 +128,24 @@ function crearMensaje(resultado){
 
     parrafo.innerHTML = 'Tu mascota ataco con ' + ataqueJugador + ', las mascotas del enemigo ataco con ' + ataqueEnemigo + ' - '+resultado
 
+    sectionsMensajes.appendChild(parrafo)
+}
+
+//Nota #09
+/*En esta funcion se valida la cantidad de vida que se tiene*/
+function revisarVidas(){
+    if(vidasEnemigo == 0){
+        crearMensajeFinal("¡Felicitaciones Ganaste!")
+    }else if(vidasJugador == 0){
+        crearMensajeFinal("Lo siento perdiste :)")
+    }
+
+}
+
+function crearMensajeFinal(resultadoFinal){
+    let sectionsMensajes = document.getElementById('Mensajes')
+    let parrafo = document.createElement('p')
+
+    parrafo.innerHTML = resultadoFinal
     sectionsMensajes.appendChild(parrafo)
 }
