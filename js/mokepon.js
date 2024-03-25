@@ -5,6 +5,12 @@ let vidasJugador = 3
 //Nota # 01
 /*La funciona iniciarJuego, permite iniciar la selccion de las mascotas dentro del HTML y tambien las diferentes acciones que se puedan agrgar a estas.*/
 function iniciarJuego(){
+    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+    sectionSeleccionarAtaque.style.display = 'none'
+
+    let sectionReiniar = document.getElementById('reiniciar')
+    sectionReiniar.style.display = 'none'
+
     let botonMascotaJugador = document.getElementById('boton-mascota')
     botonMascotaJugador.addEventListener('click', seleccionaMascotaJugador)
 
@@ -21,6 +27,16 @@ function iniciarJuego(){
 //Nota # 02
 /*La funcion seleccionarMascotaJugador, permite manipular el DOM del HTML, para poder ver los cambio realizados segun los botones colocados en el HTML y poder definir las opciones seleccionadas.*/
 function seleccionaMascotaJugador(){
+    //Nota #13
+    /*Desde la linea 29 hasta la linea 33 lo que hacer es esconder en el HTML la opcion de esconder pelear, esto para no pueda pelear sin tener que escoger una mascota primer, una vez escoge la mascoata esconde la opcion de escoger mascota y procede a mostrar el listado de ataques*/
+    let sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
+    sectionSeleccionarMascota.style.display = 'none'
+
+    let sectionReiniar = document.getElementById('reiniciar')
+    sectionReiniar.style.display = 'none'
+    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+    sectionSeleccionarAtaque.style.display = 'block'
+
     let inputHipodoge = document.getElementById('hipodoge')
     let inputCapipepo = document.getElementById('capipepo')
     let inputRatiguella = document.getElementById('ratigueya')
@@ -153,12 +169,16 @@ function crearMensajeFinal(resultadoFinal){
     sectionsMensajes.appendChild(parrafo)
 //Nota #12
 /*Desde la linea 156 hasta la 161 lo que se hace es desabilitar los botones de ataque por que ya se quedo sin vida el mokepon*/ 
-     let botonFuego = document.getElementById('boton-fuego')
+    let botonFuego = document.getElementById('boton-fuego')
     botonFuego.disabled = true
     let botonAgua = document.getElementById('boton-agua')
     botonAgua.disabled = true
     let botonTierra = document.getElementById('boton-tierra')
     botonTierra.disabled = true
+
+    let sectionReiniar = document.getElementById('reiniciar')
+    sectionReiniar.style.display = 'block'
+
 }
 
 //Nota #11
