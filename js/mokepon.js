@@ -15,6 +15,8 @@ function iniciarJuego(){
     let botonTierra = document.getElementById('boton-tierra')
     botonTierra.addEventListener('click', ataqueTierra)
 
+    let botonReiniciar = document.getElementById('boton-reiniciar')
+    botonReiniciar.addEventListener('click',reiniciarJuego)
 }
 //Nota # 02
 /*La funcion seleccionarMascotaJugador, permite manipular el DOM del HTML, para poder ver los cambio realizados segun los botones colocados en el HTML y poder definir las opciones seleccionadas.*/
@@ -141,11 +143,26 @@ function revisarVidas(){
     }
 
 }
-
+//Nota #10
+/*En esta funcion lo que se hace es imprimir un mensaje en el HTML indicando si se ha perdido o ganado*/
 function crearMensajeFinal(resultadoFinal){
     let sectionsMensajes = document.getElementById('Mensajes')
     let parrafo = document.createElement('p')
 
     parrafo.innerHTML = resultadoFinal
     sectionsMensajes.appendChild(parrafo)
+//Nota #12
+/*Desde la linea 156 hasta la 161 lo que se hace es desabilitar los botones de ataque por que ya se quedo sin vida el mokepon*/ 
+     let botonFuego = document.getElementById('boton-fuego')
+    botonFuego.disabled = true
+    let botonAgua = document.getElementById('boton-agua')
+    botonAgua.disabled = true
+    let botonTierra = document.getElementById('boton-tierra')
+    botonTierra.disabled = true
+}
+
+//Nota #11
+/*En esta funcion lo que se hara sera reiniciar el juego , borrar el listado de combate y restaurar las vidas*/
+function reiniciarJuego(){
+    location.reload()
 }
