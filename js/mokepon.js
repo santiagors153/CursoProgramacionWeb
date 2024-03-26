@@ -5,6 +5,12 @@ let vidasJugador = 3
 //Nota # 01
 /*La funciona iniciarJuego, permite iniciar la selccion de las mascotas dentro del HTML y tambien las diferentes acciones que se puedan agrgar a estas.*/
 function iniciarJuego(){
+    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+    sectionSeleccionarAtaque.style.display = 'none'
+
+    let sectionReiniar = document.getElementById('reiniciar')
+    sectionReiniar.style.display = 'none'
+
     let botonMascotaJugador = document.getElementById('boton-mascota')
     botonMascotaJugador.addEventListener('click', seleccionaMascotaJugador)
 
@@ -15,10 +21,22 @@ function iniciarJuego(){
     let botonTierra = document.getElementById('boton-tierra')
     botonTierra.addEventListener('click', ataqueTierra)
 
+    let botonReiniciar = document.getElementById('boton-reiniciar')
+    botonReiniciar.addEventListener('click',reiniciarJuego)
 }
 //Nota # 02
 /*La funcion seleccionarMascotaJugador, permite manipular el DOM del HTML, para poder ver los cambio realizados segun los botones colocados en el HTML y poder definir las opciones seleccionadas.*/
 function seleccionaMascotaJugador(){
+    //Nota #13
+    /*Desde la linea 29 hasta la linea 33 lo que hacer es esconder en el HTML la opcion de esconder pelear, esto para no pueda pelear sin tener que escoger una mascota primer, una vez escoge la mascoata esconde la opcion de escoger mascota y procede a mostrar el listado de ataques*/
+    let sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
+    sectionSeleccionarMascota.style.display = 'none'
+
+    let sectionReiniar = document.getElementById('reiniciar')
+    sectionReiniar.style.display = 'none'
+    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+    sectionSeleccionarAtaque.style.display = 'block'
+
     let inputHipodoge = document.getElementById('hipodoge')
     let inputCapipepo = document.getElementById('capipepo')
     let inputRatiguella = document.getElementById('ratigueya')
@@ -63,17 +81,14 @@ function seleccionarMascotaEnemigo(){
 /*Las siguentes funciones ataquefuego, ataqueAgua y ataqueTierra, permite mostrara de manear visual que se estan atacando con las descriociones mencionasdas en cada funcion.*/
 function ataqueFuego(){
     ataqueJugador = "Fuego"
-    alert("Fuego")
     ataqueAleatorioEnemigo()
 }
 function ataqueAgua(){
     ataqueJugador = "Agua"
-    alert("Agua")
     ataqueAleatorioEnemigo()
 }
 function ataqueTierra(){
     ataqueJugador = "Tierra"
-    alert("Tierra")
     ataqueAleatorioEnemigo()
 } 
 //Nota #05
@@ -122,7 +137,6 @@ function combate(){
         spanVidasJugador.innerHTML = vidasJugador
     }
     revisarVidas()
-
 }
 //Nota #08.
 /*ESta funcion permite imprimir el mensaje de la batalla mokepon*/
@@ -134,4 +148,41 @@ function crearMensaje(resultado){
 
     sectionsMensajes.appendChild(parrafo)
 }
-//
+
+//Nota #09
+/*En esta funcion se valida la cantidad de vida que se tiene*/
+function revisarVidas(){
+    if(vidasEnemigo == 0){
+        crearMensajeFinal("¡Felicitaciones Ganaste!")
+    }else if(vidasJugador == 0){
+        crearMensajeFinal("Lo siento perdiste :)")
+    }
+
+}
+//Nota #10
+/*En esta funcion lo que se hace es imprimir un mensaje en el HTML indicando si se ha perdido o ganado*/
+function crearMensajeFinal(resultadoFinal){
+    let sectionsMensajes = document.getElementById('Mensajes')
+    let parrafo = document.createElement('p')
+
+    parrafo.innerHTML = resultadoFinal
+    sectionsMensajes.appendChild(parrafo)
+//Nota #12
+/*Desde la linea 156 hasta la 161 lo que se hace es desabilitar los botones de ataque por que ya se quedo sin vida el mokepon*/ 
+    let botonFuego = document.getElementById('boton-fuego')
+    botonFuego.disabled = true
+    let botonAgua = document.getElementById('boton-agua')
+    botonAgua.disabled = true
+    let botonTierra = document.getElementById('boton-tierra')
+    botonTierra.disabled = true
+
+    let sectionReiniar = document.getElementById('reiniciar')
+    sectionReiniar.style.display = 'block'
+
+}
+
+//Nota #11
+/*En esta funcion lo que se hara sera reiniciar el juego , borrar el listado de combate y restaurar las vidas*/
+function reiniciarJuego(){
+    location.reload()
+}

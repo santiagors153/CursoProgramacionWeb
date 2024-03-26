@@ -1,0 +1,25 @@
+/*Nota #01*/
+/*podemos conectarnos desde nuestro CSS nuestras etiquetas en el HTML de 3 formas diferentes que veremos a continuacion:*/
+
+/*Primera Forma: hacemos referencia directamente a la etiqueta ejemplo
+h1{
+    color: lightcoral;
+}
+*/
+
+/*Segunda Forma: Primero tenemos que colocar en la etiqueeta de HTML la opcion de class (<h1 class = "tituli">mokemon</h1>)
+.titulo{
+    color: lightcoral;
+}*/
+
+/*Tercera Forma: Tenemos que colocarle a la etiqueta la opcion de id (<h1 id="titulo"> mokemon </h1>
+.titulo{
+    color: lightcoral;
+}*/
+
+.titulo{
+    color: hotpink;
+    width: 310px;
+    height: 50px;
+    background-color: teal;
+}
