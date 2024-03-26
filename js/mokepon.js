@@ -121,6 +121,8 @@ function combate(){
         vidasJugador--
         spanVidasJugador.innerHTML = vidasJugador
     }
+    revisarVidas()
+
 }
 //Nota #08.
 /*ESta funcion permite imprimir el mensaje de la batalla mokepon*/
@@ -132,3 +134,4 @@ function crearMensaje(resultado){
 
     sectionsMensajes.appendChild(parrafo)
 }
+//
