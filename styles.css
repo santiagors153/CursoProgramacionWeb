@@ -16,10 +16,36 @@ h1{
 .titulo{
     color: lightcoral;
 }*/
-
 .titulo{
     color: hotpink;
     width: 310px;
     height: 50px;
     background-color: teal;
+}
+
+/*Nota #02 Tipos de Display en CSS
+label{
+    background-color: tomato;
+    width: 310px;
+    height: 50px;
+}
+
+input{
+    background-color: aliceblue;
+    width: 310px;
+    height: 50px;
+}
+
+button{
+    background-color: blueviolet;
+    width: 310px;
+    height: 50px;
+}*/
+
+/*Nota #03 Manejode Flex Box*/
+#seleccionar-mascota{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
