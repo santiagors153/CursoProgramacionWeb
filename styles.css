@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+body{
+    font-family: "Fredoka", sans-serif;
+    background-color: #041562;
+}
 /*Nota #01*/
 /*podemos conectarnos desde nuestro CSS nuestras etiquetas en el HTML de 3 formas diferentes que veremos a continuacion:*/
 
@@ -16,11 +22,10 @@ h1{
 .titulo{
     color: lightcoral;
 }*/
+
 .titulo{
-    color: hotpink;
-    width: 310px;
-    height: 50px;
-    background-color: teal;
+    color: white;
+    font-size: 32px ;
 }
 
 /*Nota #02 Tipos de Display en CSS
@@ -52,15 +57,32 @@ button{
 
 /*Nota #04 Modelo de Caja*/
 .tarjeta-de-mokepon{
-    width: 100px;
+    width: 180px;
     height: 100px;
-    background: aquamarine;
+    background: #11468f;
     padding: 10px;
     box-sizing: border-box;
-    margin: 10px;
-    border: 1px solid hotpink;
+    border-radius: 20px;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarjeta-de-mokepon img{
+    width: 80px;
 }
 
 input{
     display: none;
+}
+
+.subtitulo{
+    color: white;
+    font-size: 22px;
+}
+
+.tarjetas{
+    display: flex;
+    gap: 10px;
 }
